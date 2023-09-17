@@ -1,0 +1,688 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/05.jpg">
+  <link rel="icon" href="/img/05.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="HeiManBads">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="HEXO接近是最近有一些朋友提出的问题，然后我做了总结，如果你也在使用HEXO，不妨看看，应该会有些帮助。  1、博客部署样式出问题了怎么办？ 2、电脑重装或者误删了本地博客怎么办？ 3、想使用两台电脑写博客怎么办？ 4、为何使用百度搜不到我的博客？  使用Jekyll解决前三个问题。不得不说 Jekyll 确实可以解决我上面三个问题, 因为 Jekyll 是直接把Markdown格式的文章直接放">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HEXO进阶">
+<meta property="og:url" content="http://example.com/2023/09/17/2020-06-12-HEXO_Advanced/index.html">
+<meta property="og:site_name" content="HeiManBads-黄冠凯">
+<meta property="og:description" content="HEXO接近是最近有一些朋友提出的问题，然后我做了总结，如果你也在使用HEXO，不妨看看，应该会有些帮助。  1、博客部署样式出问题了怎么办？ 2、电脑重装或者误删了本地博客怎么办？ 3、想使用两台电脑写博客怎么办？ 4、为何使用百度搜不到我的博客？  使用Jekyll解决前三个问题。不得不说 Jekyll 确实可以解决我上面三个问题, 因为 Jekyll 是直接把Markdown格式的文章直接放">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/13.jpg">
+<meta property="article:published_time" content="2023-09-17T07:58:51.742Z">
+<meta property="article:modified_time" content="2023-09-17T07:58:51.743Z">
+<meta property="article:author" content="HeiManBads">
+<meta property="article:tag" content="hexo">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/13.jpg">
+  
+  
+  
+  <title>HEXO进阶 - HeiManBads-黄冠凯</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>HeiManBads</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-books"></i>
+                <span>文档</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="https://hexo.fluid-dev.com/docs/guide/" target="_self">
+                    
+                    <span>配置指南</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="https://hexo.fluid-dev.com/docs/icon/" target="_self">
+                    
+                    <span>图标用法</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="HEXO进阶"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-09-17 15:58" pubdate>
+          2023年9月17日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.9k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          16 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">HEXO进阶</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>HEXO接近是最近有一些朋友提出的问题，然后我做了总结，如果你也在使用HEXO，不妨看看，应该会有些帮助。</p>
+<ul>
+<li>1、博客部署样式出问题了怎么办？</li>
+<li>2、电脑重装或者误删了本地博客怎么办？</li>
+<li>3、想使用两台电脑写博客怎么办？</li>
+<li>4、为何使用百度搜不到我的博客？</li>
+</ul>
+<h3 id="使用Jekyll解决前三个问题。"><a href="#使用Jekyll解决前三个问题。" class="headerlink" title="使用Jekyll解决前三个问题。"></a>使用Jekyll解决前三个问题。</h3><p>不得不说 <code>Jekyll</code> 确实可以解决我上面三个问题, 因为 <code>Jekyll</code> 是直接把Markdown格式的文章直接放在github仓库里的, 相当于直接用git来管理博客了, <code>Github</code> 官方也很推荐 <code>Jekyll</code> 。 你可以先看下 <code>Jekyll</code> 搭建博客的<a href="voyagelab.github.io">voyagelab</a>, <a target="_blank" rel="noopener" href="https://github.com/voyagelab/voyagelab.github.io">github地址</a>, 当然了这只是很普通的, Jekyll 也有很多主题可以选择的, 更详细的请看<a target="_blank" rel="noopener" href="http://jekyll.bootcss.com/">Jekyll中文文档</a>、<a target="_blank" rel="noopener" href="https://jekyllrb.com/">Jekyll英文文档</a>、<a target="_blank" rel="noopener" href="http://jekyllthemes.org/">Jekyll主题列表</a>。<br>在 <code>Jekyll</code> 上逛了一个星期的我又回到了 <code>Hexo</code> , 发现 目前 <code>Jekyll</code> 对主题和一些插件的支持相对 <code>Hexo</code> 来说, 没那么友好, 可能有一些其它的方法只是我没找到而已,关于 <code>Jekyll</code> 搭建博客就介绍到这, 如果有问题的话可以评论, 或者联系我。</p>
+<h3 id="使用Hexo解决上面前三个问题"><a href="#使用Hexo解决上面前三个问题" class="headerlink" title="使用Hexo解决上面前三个问题"></a>使用Hexo解决上面前三个问题</h3><p>是的, 我大<code>Hexo</code>同样可以解决上面三个问题, 那就是使用git。关于如何使用 <code>Hexo</code> 搭建博客请看我另一篇文章<a target="_blank" rel="noopener" href="http://www.boobar.cn/2015/08/25/HEXO%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">HEXO搭建个人博客</a>, 如果搭建的过程中出现了问题, 我们可以交流交流。现在我假设你已经能基本使用 <code>Hexo</code> 了, 接下来就看看如何来管理博客。</p>
+<h2 id="使用git管理博客"><a href="#使用git管理博客" class="headerlink" title="使用git管理博客"></a>使用git管理博客</h2><p><a target="_blank" rel="noopener" href="https://github.com/boobar/Blog-Growing">Blog-Growing</a>是我管理博客的仓库地址。结构大致是:</p>
+<blockquote>
+<p>– Blog-Growing<br>　　|– .git<br>　　|– .gitignore<br>　　|– Hexo<br>　　　　|   ..<br>　　　　|   ..<br>　　　　|   整个博客的配置信息    </p>
+</blockquote>
+<p>你可以把我的的<a target="_blank" rel="noopener" href="https://github.com/boobar/Blog-Growing">Blog-Growing</a> clone下来, 看看一些基本配置是怎么配置的。需要提醒的是, <code>要把主题下的.git给删除掉</code> , 当然了你也可以使用 <code>git submodule</code> 来管理, 具体的管理方法我这里就不做多的介绍了, 想了解的话可以私信我。<br>上面的过程基本做完后, 怎么来解决我开篇提的前三个问题了。</p>
+<h3 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现:"></a>具体实现:</h3><p><strong>一：家里电脑使用博客</strong><br>　　建立git远端仓库管理博客,并使用家里的电脑把本地博客的配置推送到远端仓库。<br><strong>二：公司电脑使用博客</strong><br>　　到了公司只需要执行<code>sudo npm install -g hexo</code>,然后cd到你的博客目录下,如我cd 到Hexo目录下, 然后执行 <code>hexo server</code> 就可以在本地预览博客了。<br><strong>三：使用Git保存</strong><br>　　修改好博客后记得先使用git来提交下, 即使下次把博客的样式修改坏了, 也可以使用 <code>git reset --hard</code> 来回退。如: 我cd 到 <code>Blog-Growing</code> 目录下使用git提交。<br><strong>四：博客提交</strong><br>　　1、修改好的博客使用 <code>hexo d</code> 展示到博客页上。<br>　　2、git push 整个本地博客。    </p>
+<p><strong>提示:</strong> 在这里 <code>git</code> 仅仅只是用户做博客的版本管理的, 博客的样式修改、基本部署还是使用 <code>hexo</code> 来操作的。</p>
+<h2 id="让百度能搜索到你的博客"><a href="#让百度能搜索到你的博客" class="headerlink" title="让百度能搜索到你的博客"></a>让百度能搜索到你的博客</h2><h3 id="为什么要使用百度搜索？"><a href="#为什么要使用百度搜索？" class="headerlink" title="为什么要使用百度搜索？"></a>为什么要使用百度搜索？</h3><p>　　有人可能会说作为一个开发人员, 你不会用 <code>Google</code> 啊。 是的, Google是能搜到我们搭建在 <code>Github Page</code> 的博客, 会用<code>Google</code> 也是一个开发人员必备技能之一。但是, 我们生活在天朝, 所以百度还是总有会用到的时候, 或者是你想让更多的天朝人能搜到你。</p>
+<h3 id="为什么使用百度搜索不到-Github-Page-上的博客？"><a href="#为什么使用百度搜索不到-Github-Page-上的博客？" class="headerlink" title="为什么使用百度搜索不到 Github Page 上的博客？"></a>为什么使用百度搜索不到 Github Page 上的博客？</h3><p>有人联系过 Github Support 部门 , 给出大致的意思就是: 百度爬虫爬得太猛烈，已经对很多 Github 用户造成了问题。所以 Github 将禁止百度爬虫的爬取。    </p>
+<h3 id="如何让百度能搜索你的博客"><a href="#如何让百度能搜索你的博客" class="headerlink" title="如何让百度能搜索你的博客?"></a>如何让百度能搜索你的博客?</h3><p>　　根据上面说的, 目前发现只是Github Page禁止了百度搜索, 所以让百度能搜索到你的博客还是有一些方法的。例如:</p>
+<ul>
+<li>自己搞个VPS,博客部署在VPS上。</li>
+<li>博客部署 <code>Coding.net</code> 上, <code>GitCafe</code>已经合并到 <code>Coding</code> 。<br>我使用的是第二种方法, 博客部署在 <code>Coding.net</code> 上也相对简单些。</li>
+</ul>
+<h4 id="在Coding上部署你的博客。"><a href="#在Coding上部署你的博客。" class="headerlink" title="在Coding上部署你的博客。"></a>在Coding上部署你的博客。</h4><p>　　Coding同样支持Hexo、Jekyll等博客的部署, Coding 跟Github还是挺像的,而且是中文。 同样的在Coding里面建一个项目,项目名字跟你的用户名一样,这里我就不啰嗦了, 说几个需要注意的地方:<br><strong>注意一:</strong><br>　　在<code>Coding Page</code> 上部署博客,需要把博客推送到<code>coding-pages </code> 分支上, 分支名字是固定的。<br><strong>注意二:</strong><br>　　<code>Coding Page</code> 不支持自定义CNAME, 你需要点击到Page模块,然后添加一个域名来绑定。   </p>
+<p>更详细的请看<a target="_blank" rel="noopener" href="https://coding.net/help/doc/pages/index.html">Coding Pages 官网介绍</a>.     </p>
+<p>参考文章:<br><a target="_blank" rel="noopener" href="http://jerryzou.com/posts/feasibility-of-allowing-baiduSpider-for-Github-Pages/">解决 Github Pages 禁止百度爬虫的方法与可行性分析</a></p>
+<br>
+
+<p>转载请注明：<a target="_blank" rel="noopener" href="https://boobar.asia/">黄冠凯的博客</a> » <a target="_blank" rel="noopener" href="http://boobar.cn/2016/06/HEXO_Advanced/">点击阅读原文</a></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/hexo/" class="print-no-link">#hexo</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>HEXO进阶</div>
+      <div>http://example.com/2023/09/17/2020-06-12-HEXO_Advanced/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>HeiManBads</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年9月17日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2023/09/17/2023-09-16-Vue/" title="Vue">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Vue</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/10/14/2021-10-14-jekyll_tutorials1/" title="Jekyll搭建个人博客">
+                        <span class="hidden-mobile">Jekyll搭建个人博客</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a>
+<p><span>总访问量 207837 次</span> <span>总访客数 51952 人</span></p> <p>粤ICP备19029560号-1</p> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

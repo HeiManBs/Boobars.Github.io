@@ -1,0 +1,737 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/05.jpg">
+  <link rel="icon" href="/img/05.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="HeiManBads">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="之前写了一篇HEXO搭建个人博客的教程获得了很好评，尤其是在简书上目前已经累积了10W+的阅读量了，也有好心的读者主动给我打赏，在此感谢。 　如果你看过我的文章会发现我现在的博客样式跟之前是有很大的区别的，之前我也是使用 HEXO 搭建的博客，后来发现使用 HEXO 在多台电脑上发布博客，操作起来并不是那么方便，果断就转到了 Jekyll 上，接下来我会讲如何使用 Jekyll 搭建博客，博客模">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Jekyll搭建个人博客">
+<meta property="og:url" content="http://example.com/2021/10/14/2021-10-14-jekyll_tutorials1/index.html">
+<meta property="og:site_name" content="HeiManBads-黄冠凯">
+<meta property="og:description" content="之前写了一篇HEXO搭建个人博客的教程获得了很好评，尤其是在简书上目前已经累积了10W+的阅读量了，也有好心的读者主动给我打赏，在此感谢。 　如果你看过我的文章会发现我现在的博客样式跟之前是有很大的区别的，之前我也是使用 HEXO 搭建的博客，后来发现使用 HEXO 在多台电脑上发布博客，操作起来并不是那么方便，果断就转到了 Jekyll 上，接下来我会讲如何使用 Jekyll 搭建博客，博客模">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/14.jpg">
+<meta property="article:published_time" content="2021-10-13T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-09-17T09:08:51.845Z">
+<meta property="article:author" content="HeiManBads">
+<meta property="article:tag" content="jekyll">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/14.jpg">
+  
+  
+  
+  <title>Jekyll搭建个人博客 - HeiManBads-黄冠凯</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>HeiManBads</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-books"></i>
+                <span>文档</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="https://hexo.fluid-dev.com/docs/guide/" target="_self">
+                    
+                    <span>配置指南</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="https://hexo.fluid-dev.com/docs/icon/" target="_self">
+                    
+                    <span>图标用法</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Jekyll搭建个人博客"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2021-10-14 00:00" pubdate>
+          2021年10月14日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          7k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          59 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Jekyll搭建个人博客</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>　之前写了一篇<a target="_blank" rel="noopener" href="http://boobar.cn/2015/08/HEXO%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">HEXO搭建个人博客</a>的教程获得了很好评，尤其是在<a target="_blank" rel="noopener" href="http://www.jianshu.com/p/465830080ea9">简书</a>上目前已经累积了10W+的阅读量了，也有好心的读者主动给我打赏，在此感谢。</p>
+<p>　如果你看过我的文章会发现我现在的博客样式跟之前是有很大的区别的，之前我也是使用 HEXO 搭建的博客，后来发现使用 HEXO 在多台电脑上发布博客，操作起来并不是那么方便，果断就转到了 Jekyll 上，接下来我会讲如何使用 Jekyll 搭建博客，<a target="_blank" rel="noopener" href="http://boobar.cn/#blog">博客模板效果</a>。</p>
+<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p> 　Jekyll 是一个简单的博客形态的静态站点生产机器。它有一个模版目录，其中包含原始文本格式的文档，通过 Markdown （或者 Textile） 以及 Liquid 转化成一个完整的可发布的静态网站，你可以发布在任何你喜爱的服务器上。Jekyll 也可以运行在 GitHub Page 上，也就是说，你可以使用 GitHub 的服务来搭建你的项目页面、博客或者网站，而且是完全免费的</p>
+<p>　使用 Jekyll 搭建博客之前要确认下本机环境，Git 环境（用于部署到远端）、<a target="_blank" rel="noopener" href="http://www.ruby-lang.org/en/downloads/">Ruby</a> 环境（Jekyll 是基于 Ruby 开发的）、包管理器 <a target="_blank" rel="noopener" href="http://rubygems.org/pages/download">RubyGems</a><br>　　如果你是 Mac 用户，你就需要安装 Xcode 和 Command-Line Tools了。下载方式 Preferences → Downloads → Components。</p>
+<p>　　Jekyll 是一个免费的简单静态网页生成工具，可以配合第三方服务例如： Disqus（评论）、多说(评论) 以及分享 等等扩展功能，Jekyll 可以直接部署在 Github（国外） 或 Coding（国内） 上，可以绑定自己的域名。<a target="_blank" rel="noopener" href="http://jekyll.bootcss.com/">Jekyll中文文档</a>、<a target="_blank" rel="noopener" href="https://jekyllrb.com/">Jekyll英文文档</a>、<a target="_blank" rel="noopener" href="http://jekyllthemes.org/">Jekyll主题列表</a>。</p>
+<h3 id="Jekyll-环境配置"><a href="#Jekyll-环境配置" class="headerlink" title="Jekyll 环境配置"></a>Jekyll 环境配置</h3><p>安装 jekyll</p>
+<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs autohotkey">$ gem install jekyll     <br>```    <br><br>创建博客<br><br>```    <br>$ jekyll <span class="hljs-keyword">new</span> myBlog    <br>```   <br><br>进入博客目录<br><br></code></pre></td></tr></table></figure>
+<p>$ cd myBlog  </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs"><br>启动本地服务<br><br></code></pre></td></tr></table></figure>
+<p>$ jekyll serve</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs awk"><br>在浏览器里输入： [http:<span class="hljs-regexp">//</span>localhost:<span class="hljs-number">4000</span>](http:<span class="hljs-regexp">//</span>localhost:<span class="hljs-number">4000</span>)，就可以看到你的博客效果了。<br><br>![](<span class="hljs-regexp">/images/</span>posts<span class="hljs-regexp">/jekyll/im</span>age1.png)<br><br>so easy !<br><br><span class="hljs-comment">### 目录结构</span><br>　<br>　Jekyll 的核心其实是一个文本转换引擎。它的概念其实就是： 你用你最喜欢的标记语言来写文章，可以是 Markdown，也可以是 Textile,或者就是简单的 HTML, 然后 Jekyll 就会帮你套入一个或一系列的布局中。在整个过程中你可以设置URL路径, 你的文本在布局中的显示样式等等。这些都可以通过纯文本编辑来实现，最终生成的静态页面就是你的成品了。<br><br> 一个基本的 Jekyll 网站的目录结构一般是像这样的：<br><br></code></pre></td></tr></table></figure>
+<p>.<br>├── _config.yml<br>├── _includes<br>|   ├── footer.html<br>|   └── header.html<br>├── _layouts<br>|   ├── default.html<br>|   ├── post.html<br>|   └── page.html<br>├── _posts<br>|   └── 2016-10-08-welcome-to-jekyll.markdown<br>├── _sass<br>|   ├── _base.scss<br>|   ├── _layout.scss<br>|   └── _syntax-highlighting.scss<br>├── about.md<br>├── css<br>|   └── main.scss<br>├── feed.xml<br>└── index.html</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs awk"><br>这些目录结构以及具体的作用可以参考 [官网文档](http:<span class="hljs-regexp">//</span>jekyll.com.cn<span class="hljs-regexp">/docs/</span>structure/) <br><br>进入 _config.yml 里面，修改成你想看到的信息，重新 jekyll server ，刷新浏览器就可以看到你刚刚修改的信息了。<br><br>到此，博客初步搭建算是完成了，<br><br><span class="hljs-comment">### 博客部署到远端 </span><br><br>　我这里讲的是部署到 Github Page 创建一个 github 账号，然后创建一个跟你账户名一样的仓库，如我的 github 账户名叫 [boobar](https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/boobar)，我的 github 仓库名就叫 [boobar.github.io](https:/</span><span class="hljs-regexp">/github.com/</span>boobar/boobar.github.io)，创建好了之后，把刚才建立的 myBlog 项目 push 到 username.github.io仓库里去（username指的是你的github用户名），检查你远端仓库已经跟你本地 myBlog 同步了，然后你在浏览器里输入 username.github.io ，就可以访问你的博客了。<br><br><br><span class="hljs-comment">### 编写文章</span><br><br>　　所有的文章都是 _posts 目录下面，文章格式为 mardown 格式，文章文件名可以是 .mardown 或者 .md。<br><br>　　编写一篇新文章很简单，你可以直接从 _posts<span class="hljs-regexp">/ 目录下复制一份出来 `2016-10-16-welcome-to-jekyll副本.markdown` ，修改名字为 2016-10-16-article1.markdown ，注意：文章名的格式前面必须为 2016-10-16- ，日期可以修改，但必须为 年-月-日- 格式，后面的 article1 是整个文章的连接 URL，如果文章名为中文，那么文章的连接URL就会变成这样的：http:/</span><span class="hljs-regexp">/boobar.cn/</span><span class="hljs-number">2015</span><span class="hljs-regexp">/08/</span>%E6%<span class="hljs-number">90</span>%AD%E5/ ， 所以建议文章名最好是英文的或者阿拉伯数字。 双击 <span class="hljs-number">2016</span>-<span class="hljs-number">10</span>-<span class="hljs-number">16</span>-article1.markdown 打开<br><br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="layout-posttitle-“Welcome-to-Jekyll-”date-2021-10-16-11-29-08-0800categories-jekyll-update"><a href="#layout-posttitle-“Welcome-to-Jekyll-”date-2021-10-16-11-29-08-0800categories-jekyll-update" class="headerlink" title="layout: posttitle:  “Welcome to Jekyll!”date:   2021-10-16 11:29:08 +0800categories: jekyll update"></a>layout: post<br>title:  “Welcome to Jekyll!”<br>date:   2021-10-16 11:29:08 +0800<br>categories: jekyll update</h2><p>正文…</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs awk"><br><br>title: 显示的文章名， 如：title: 我的第一篇文章                    <br>date:  显示的文章发布日期，如：date: <span class="hljs-number">2021</span>-<span class="hljs-number">10</span>-<span class="hljs-number">16</span>                          <br>categories: tag标签的分类，如：categories: 随笔            <br><br>注意：文章头部格式必须为上面的，.... 就是文章的正文内容。<br><br>我写文章使用的是 Sublime Text2 编辑器，如果你对 markdown 语法不熟悉的话，可以看看[作业部落的教程](https:<span class="hljs-regexp">//</span>www.zybuluo.com/) <br><br><br><span class="hljs-comment">### 使用我的博客模板</span><br><br>虽然博客部署完成了，你会发现博客太简单不是你想要的，如果你喜欢我的模板的话，可以使用我的模板。<br><br>首先你要获取的我博客，[Github项目地址](https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/boobar/</span>boobar.github.io.git)，你可以直接[点击下载博客](https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/boobar/</span>boobar.github.io<span class="hljs-regexp">/archive/m</span>aster.zip)，进去boobar.github.io/ 目录下， 使用命令部署本地服务 <br><br></code></pre></td></tr></table></figure>
+<p>$ jekyll server   </p>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs clean"><br>### 如果你本机没配置过任何jekyll的环境，可能会报错<br><br></code></pre></td></tr></table></figure>
+<p>&#x2F;Users&#x2F;xxxxxxxx&#x2F;.rvm&#x2F;rubies&#x2F;ruby-2.2.2&#x2F;lib&#x2F;ruby&#x2F;site_ruby&#x2F;2.2.0&#x2F;rubygems&#x2F;core_ext&#x2F;kernel_require.rb:54:in <code>require&#39;: cannot load such file -- bundler (LoadError)     from /Users/xxxxxxxx/.rvm/rubies/ruby-2.2.2/lib/ruby/site_ruby/2.2.0/rubygems/core_ext/kernel_require.rb:54:in </code>require’<br>    from &#x2F;Users&#x2F;xxxxxxxx&#x2F;.rvm&#x2F;gems&#x2F;ruby-2.2.2&#x2F;gems&#x2F;jekyll-3.3.0&#x2F;lib&#x2F;jekyll&#x2F;plugin_manager.rb:34:in <code>require_from_bundler&#39;     from /Users/xxxxxxxx/.rvm/gems/ruby-2.2.2/gems/jekyll-3.3.0/exe/jekyll:9:in </code>&lt;top (required)&gt;’<br>    from &#x2F;Users&#x2F;xxxxxxxx&#x2F;.rvm&#x2F;gems&#x2F;ruby-2.2.2&#x2F;bin&#x2F;jekyll:23:in <code>load&#39;     from /Users/xxxxxxxx/.rvm/gems/ruby-2.2.2/bin/jekyll:23:in </code><main>‘<br>    from &#x2F;Users&#x2F;xxxxxxxx&#x2F;.rvm&#x2F;gems&#x2F;ruby-2.2.2&#x2F;bin&#x2F;ruby_executable_hooks:15:in <code>eval&#39;     from /Users/xxxxxxxx/.rvm/gems/ruby-2.2.2/bin/ruby_executable_hooks:15:in </code><main>‘</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm"><br>原因： 没有安装 <span class="hljs-keyword">bundler </span>，执行安装 <span class="hljs-keyword">bundler </span>命令<br><br></code></pre></td></tr></table></figure>
+
+<p>$ gem install bundler</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs"><br><br>提示： <br><br></code></pre></td></tr></table></figure>
+<p>Fetching: bundler-1.13.5.gem (100%)<br>Successfully installed bundler-1.13.5<br>Parsing documentation for bundler-1.13.5<br>Installing ri documentation for bundler-1.13.5<br>Done installing documentation for bundler after 5 seconds<br>1 gem installed</p>
+<figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs axapta"><br>再次执行 $ jekyll <span class="hljs-keyword">server</span>  ，提示<br><br></code></pre></td></tr></table></figure>
+
+<p>Could not find proper version of jekyll (3.1.1) in any of the sources<br>Run <code>bundle install</code> to install missing gems.</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs"><br>跟着提示运行命令<br><br></code></pre></td></tr></table></figure>
+<p>$ bundle install</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm"><br>这个时候你可能会发现 <span class="hljs-keyword">bundle </span><span class="hljs-keyword">install </span>运行卡主不动了。<br><br>如果很长时间都没任何提示的话，你可以尝试修改 gem 的 source<br><br></code></pre></td></tr></table></figure>
+<p>$ gem sources –remove <a target="_blank" rel="noopener" href="https://rubygems.org/">https://rubygems.org/</a><br>$ gem sources -a <a target="_blank" rel="noopener" href="http://ruby.taobao.org/">http://ruby.taobao.org/</a><br>$ gem sources -l<br>*** CURRENT SOURCES ***</p>
+<p><a target="_blank" rel="noopener" href="http://ruby.taobao.org/">http://ruby.taobao.org</a></p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm"><br>再次执行命令 $ <span class="hljs-keyword">bundle </span><span class="hljs-keyword">install，发现开始有动静了</span><br><span class="hljs-keyword"></span><br></code></pre></td></tr></table></figure>
+<p>Fetching gem metadata from <a target="_blank" rel="noopener" href="https://rubygems.org/">https://rubygems.org/</a>………..<br>Fetching version metadata from <a target="_blank" rel="noopener" href="https://rubygems.org/">https://rubygems.org/</a>..<br>Fetching dependency metadata from <a target="_blank" rel="noopener" href="https://rubygems.org/">https://rubygems.org/</a>.<br>。。。<br>Installing jekyll-watch 1.3.1<br>Installing jekyll 3.1.1<br>Bundle complete! 3 Gemfile dependencies, 17 gems now installed.<br>Use <code>bundle show [gemname]</code> to see where a bundled gem is installed.</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm"><br><span class="hljs-keyword">bundler安装完成，后再次启动本地服务 </span><br><br></code></pre></td></tr></table></figure>
+<p>$ jekyll server</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs"><br>继续报错<br><br></code></pre></td></tr></table></figure>
+<p>Configuration file: &#x2F;Users&#x2F;tendcloud-Caroline&#x2F;Desktop&#x2F;boobar.github.io&#x2F;_config.yml<br>  Dependency Error: Yikes! It looks like you don’t have jekyll-sitemap or one of its dependencies installed. In order to use Jekyll as currently configured, you’ll need to install this gem. The full error message from Ruby is: ‘cannot load such file – jekyll-sitemap’ If you run into trouble, you can find helpful resources at <a target="_blank" rel="noopener" href="http://jekyllrb.com/help/">http://jekyllrb.com/help/</a>!<br>jekyll 3.1.1 | Error:  jekyll-sitemap</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm">表示 当前的 <span class="hljs-keyword">jekyll </span>版本是 <span class="hljs-number">3</span>.<span class="hljs-number">1</span>.<span class="hljs-number">1</span> ，无法使用 <span class="hljs-keyword">jekyll-sitemap </span><br><br>解决方法有两个<br><br>&gt; <span class="hljs-number">1</span>、打开当前目录下的 _<span class="hljs-built_in">config</span>.yml 文件，把 gems: [<span class="hljs-keyword">jekyll-paginate,jekyll-sitemap] </span>换成 gems: [<span class="hljs-keyword">jekyll-paginate] </span>，也就是去掉<span class="hljs-keyword">jekyll-sitemap。</span><br><span class="hljs-keyword"></span><br>&gt; <span class="hljs-number">2</span>、升级 <span class="hljs-keyword">jekyll </span>版本，我当前的是 <span class="hljs-keyword">jekyll </span><span class="hljs-number">3</span>.<span class="hljs-number">1</span>.<span class="hljs-number">2</span> 。<br><br>修改完成后保存配置，再次执行<br><br></code></pre></td></tr></table></figure>
+<p>$ jekyll server</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs">提示<br><br></code></pre></td></tr></table></figure>
+<p>Configuration file: &#x2F;Users&#x2F;baixinpan&#x2F;Desktop&#x2F;OpenSource&#x2F;Mine&#x2F;Page-Blog&#x2F;boobar.github.io-github&#x2F;_config.yml<br>            Source: &#x2F;Users&#x2F;baixinpan&#x2F;Desktop&#x2F;OpenSource&#x2F;Mine&#x2F;Page-Blog&#x2F;boobar.github.io-github<br>       Destination: &#x2F;Users&#x2F;baixinpan&#x2F;Desktop&#x2F;OpenSource&#x2F;Mine&#x2F;Page-Blog&#x2F;boobar.github.io-github&#x2F;_site<br> Incremental build: disabled. Enable with –incremental<br>      Generating…<br>                    done in 0.901 seconds.<br> Auto-regeneration: enabled for ‘&#x2F;Users&#x2F;baixinpan&#x2F;Desktop&#x2F;OpenSource&#x2F;Mine&#x2F;Page-Blog&#x2F;boobar.github.io-github’<br>Configuration file: &#x2F;Users&#x2F;baixinpan&#x2F;Desktop&#x2F;OpenSource&#x2F;Mine&#x2F;Page-Blog&#x2F;boobar.github.io-github&#x2F;_config.yml<br>    Server address: <a target="_blank" rel="noopener" href="http://127.0.0.1:4000/">http://127.0.0.1:4000/</a><br>  Server running… press ctrl-c to stop.</p>
+<pre><code class="hljs">
+表示本地服务部署成功。
+
+在浏览器输入 [127.0.0.1:4000](127.0.0.1:4000) ， 就可以看到[boobar.cn](http://boobar.cn)博客效果了。
+
+### 修改成你自己的博客
+
+&gt;* 如果你想使用我的模板请把 _posts/ 目录下的文章都去掉。
+&gt;* 修改 _config.yml 文件里面的内容为你自己的。
+
+然后使用 git push 到你自己的仓库里面去，检查你远端仓库，在浏览器输入 username.github.io 就会发现，你有一个漂亮的主题模板了。      
+
+
+### 为什么要是用 Jekyll
+
+使用了 Jekyll 你会发现如果你想使用多台电脑发博客都很方便，只要把远端 github 仓库里的博客 clone 下来，写文章后再提交就可以了，Hexo 由于远端提交的是静态网页，所有无法直接写 Markdown 的文章。如果你想看 Hexo 搭建博客，可以看看我的另一篇[HEXO搭建个人博客](http://boobar.cn/2015/08/HEXO%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/)的教程。
+
+如果你在搭建博客遇到问题，可以在[原文博客](http://boobar.cn/2016/10/jekyll_tutorials1/)的评论里给我提问。
+
+后面会继续介绍，在我的博客基础上，如何修改成你自己喜欢的 Style，欢迎继续关注我博客的更新。
+
+
+### Q&amp;A 
+
+&gt; 问题：最近很多朋友使用我的模板报警告：The CNAME `boobar.cn` is already taken 
+&gt; 解决：把CNAME里面的baixin.io修改成你自己的域名，如果你暂时没有域名，CNAME里面就什么都不用谢。（之前没人反馈过这个问题，应该是github page最近才最的限制。）
+
+
+
+
+
+
+
+
+</code></pre>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/jekyll/" class="print-no-link">#jekyll</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Jekyll搭建个人博客</div>
+      <div>http://example.com/2021/10/14/2021-10-14-jekyll_tutorials1/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>HeiManBads</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2021年10月14日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2023/09/17/2020-06-12-HEXO_Advanced/" title="HEXO进阶">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">HEXO进阶</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/11/20/2020-11-20-markdownTool/" title="文档支持的Markdown语法">
+                        <span class="hidden-mobile">文档支持的Markdown语法</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a>
+<p><span>总访问量 207837 次</span> <span>总访客数 51952 人</span></p> <p>粤ICP备19029560号-1</p> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
